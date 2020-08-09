@@ -28,7 +28,7 @@ file1.close()
 TOKEN = " ".join(TOKEN)
 
 
-@bot.command
+@bot.event
 # connects to discord
 async def on_ready():
     print(f'{bot.user} has connected to Discord!')
