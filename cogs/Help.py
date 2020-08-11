@@ -38,12 +38,12 @@ class help(commands.Cog):
             if cmds_desc != '':
                 halp.add_field(name='Uncatergorized Commands', value=cmds_desc[0:len(cmds_desc) - 1], inline=False)
             await ctx.message.add_reaction(emoji='✉')
-            await ctx.message.author.send('', embed=halp)
+            await ctx.send('', embed=halp)
         else:
             if len(cog) > 1:
                 halp = discord.Embed(title='Error!', description=' ',
                                      color=discord.Color.red())
-                await ctx.message.author.send('', embed=halp)
+                await ctx.send('', embed=halp)
             else:
                 """
                 Command listing within a cog.
@@ -64,7 +64,7 @@ class help(commands.Cog):
                                          color=discord.Color.red())
                 else:
                     await ctx.message.add_reaction(emoji='✉')
-                await ctx.message.author.send('', embed=halp)
+                await ctx.send('', embed=halp)
 
 
 def setup(bot):
