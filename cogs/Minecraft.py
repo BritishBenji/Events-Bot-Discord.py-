@@ -1,10 +1,9 @@
 import discord
 from discord.ext import commands
-from datetime import datetime as d
-import os
 from run import get_prefix
 
 
+# I'm actually really surprised I basically finished this cog, but tbf, it's simple as shit
 class Minecraft(commands.Cog):
     """
     This Command allows you to tell people you're\nrunning a Minecraft Event!

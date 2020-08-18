@@ -1,13 +1,15 @@
 import discord
 from discord.ext import commands
-import os
 from run import get_prefix
 
 
+# I literally stole 50 lines of code for this cog. I'll personalise it eventually, the whole:
+# "Sure you can copy my homework, just change it up a little"
 class Help(commands.Cog):
     """
     Shows This Help Command!
     """
+
     def __init__(self, bot, *cog):
         self.bot = bot
 
@@ -15,7 +17,6 @@ class Help(commands.Cog):
                        description="A bot made to describe the events in your server",
                        case_insensitive=True
                        )
-
 
     @commands.group(name="help",
                     description="A customized help command"

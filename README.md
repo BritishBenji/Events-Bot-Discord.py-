@@ -13,3 +13,5 @@ Developer Portal](https://discord.com/developers/applications) install the depen
 
 To anyone that comes across this repository, please feel free to create an issue 
 and leave suggestions! They are much appreciated!
+
+(Or, if you're feeling really generous, create a pull request with new features!)

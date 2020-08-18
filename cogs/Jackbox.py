@@ -15,6 +15,10 @@ class Jackbox(commands.Cog):
 
     @bot.command(name="Jackbox", description="The Jackbox Commands")
     async def Jackbox(self, ctx):
+        # I had to try sooooo hard to not be passive aggressive here, I have throughout the entire program
+        """
+        This command works like a help command, call it to see all the options, except in an embed!
+        """
         embed = discord.Embed(title="Jackbox Games!", color=0x50b51b,
                               description="Below is a list of commands usable with the Jackbox Module")
         embed.add_field(name="Mad Verse City", value=f'Can be called using __MVC <Room Code>__', inline=True)

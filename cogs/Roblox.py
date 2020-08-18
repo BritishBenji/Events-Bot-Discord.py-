@@ -1,7 +1,5 @@
 import discord
 from discord.ext import commands
-from datetime import datetime as d
-import os
 from run import get_prefix
 
 roblox_users = {
@@ -11,7 +9,14 @@ roblox_users = {
 }
 
 
+# TODO: Replace the dictionary with a CSV file or a database
+# TODO: Add a command to allow users to add their roblox profile
+# I literally don't care if it verifies it, I'm not making a way to do that, no HTML compatibility here pleaasssseeeee
+
 class Roblox(commands.Cog):
+    """
+    The base command for Roblox Games!
+    """
     def __init__(self, bot):
         self.bot = bot
 
@@ -20,6 +25,9 @@ class Roblox(commands.Cog):
 
     @bot.command(name="Roblox", description="Show's the command callers Username and a Link to their Roblox Account")
     async def Roblox(self, ctx):
+        """
+        Use this command to send a link in chat to your Roblox Account!
+        """
         embed = discord.Embed(title="Roblox Games!", color=0x50b51b,
                               description="Join our game of Roblox! \n\nFollow <@{}> into the games! \n\nNeed a link to their profile? It's below!\n\n{}".format(
                                   ctx.author.id, roblox_users.get(ctx.author.id)))
