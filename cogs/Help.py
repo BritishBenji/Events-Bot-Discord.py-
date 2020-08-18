@@ -4,7 +4,10 @@ import os
 from run import get_prefix
 
 
-class help(commands.Cog):
+class Help(commands.Cog):
+    """
+    Shows This Help Command!
+    """
     def __init__(self, bot, *cog):
         self.bot = bot
 
@@ -12,6 +15,7 @@ class help(commands.Cog):
                        description="A bot made to describe the events in your server",
                        case_insensitive=True
                        )
+
 
     @commands.group(name="help",
                     description="A customized help command"
@@ -60,7 +64,7 @@ class help(commands.Cog):
                             found = True
                 if not found:
                     """Reminds you if that cog doesn't exist."""
-                    halp = discord.Embed(title='Error!', description='How do you even use "' + cog[0] + '"?',
+                    halp = discord.Embed(title='Error!', description='That Isn\'t a Command! "' + cog[0] + '"?',
                                          color=discord.Color.red())
                 else:
                     await ctx.message.add_reaction(emoji='✉')
@@ -68,4 +72,4 @@ class help(commands.Cog):
 
 
 def setup(bot):
-    bot.add_cog(help(bot))
+    bot.add_cog(Help(bot))

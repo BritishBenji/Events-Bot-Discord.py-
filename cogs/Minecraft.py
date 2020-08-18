@@ -6,6 +6,9 @@ from run import get_prefix
 
 
 class Minecraft(commands.Cog):
+    """
+    This Command allows you to tell people you're\nrunning a Minecraft Event!
+    """
     def __init__(self, bot):
         self.bot = bot
 
@@ -14,6 +17,9 @@ class Minecraft(commands.Cog):
 
     @bot.command(name="Minecraft")
     async def Minecraft(self, ctx, ip):
+        """
+        Follow the Command with an IP address \nto show the IP in your announcement!
+        """
         embed = discord.Embed(title='Minecraft Games Night!', color=0x50b51b,
                               description=f'Join our game of Minecraft!\n\n**IP = {ip}**')
         embed.set_thumbnail(

@@ -4,6 +4,9 @@ from run import get_prefix
 
 
 class Jackbox(commands.Cog):
+    """
+    The Base Command for Jackbox Games!\nRun This Command for all compatible games so far!
+    """
     def __init__(self, bot):
         self.bot = bot
 
