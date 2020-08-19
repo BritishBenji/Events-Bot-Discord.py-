@@ -5,6 +5,8 @@ from run import get_prefix
 
 # I literally stole 50 lines of code for this cog. I'll personalise it eventually, the whole:
 # "Sure you can copy my homework, just change it up a little"
+
+
 class Help(commands.Cog):
     """
     Shows This Help Command!
@@ -43,7 +45,7 @@ class Help(commands.Cog):
             if cmds_desc != '':
                 halp.add_field(name='Uncatergorized Commands', value=cmds_desc[0:len(cmds_desc) - 1], inline=False)
             await ctx.message.add_reaction(emoji='✉')
-            await ctx.send('', embed=halp)
+            await ctx.author.send('', embed=halp)
         else:
             if len(cog) > 1:
                 halp = discord.Embed(title='Error!', description=' ',
@@ -65,11 +67,11 @@ class Help(commands.Cog):
                             found = True
                 if not found:
                     """Reminds you if that cog doesn't exist."""
-                    halp = discord.Embed(title='Error!', description='That Isn\'t a Command! "' + cog[0] + '"?',
+                    halp = discord.Embed(title='Error!', description=f'{cog[0]} isn\'t a Command!',
                                          color=discord.Color.red())
                 else:
                     await ctx.message.add_reaction(emoji='✉')
-                await ctx.send('', embed=halp)
+                await ctx.author.send('', embed=halp)
 
 
 def setup(bot):

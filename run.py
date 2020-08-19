@@ -9,6 +9,7 @@ import os
 
 guilds = []
 client = discord.Client()
+directory = os.getcwd()
 
 
 # If you can't tell, I literally just stole the get_prefix code from some other dude, idk who it was,
@@ -32,7 +33,7 @@ bot = commands.Bot(command_prefix=get_prefix, description="A bot made to describ
 bot.remove_command('help')
 
 # collect token here
-file1 = open("token.txt", "r")
+file1 = open(f"token.txt", "r")
 TOKEN = file1.readlines()
 file1.close()
 TOKEN = " ".join(TOKEN)
@@ -48,6 +49,8 @@ async def on_ready():
     print(guilds)
     await bot.change_presence(
         activity=discord.Streaming(name="In Development!", url="https://www.twitch.tv/BritishBenji"))
+    user = bot.user
+    await user.edit(nick="Events Bot")
 
 
 # Loads the cogs, prints them out, self explanatory I guess
