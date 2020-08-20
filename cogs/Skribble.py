@@ -5,9 +5,6 @@ from discord.ext import commands
 from run import get_prefix
 
 
-# TODO: Add in descriptions for the help command, cause it doesn't like command descriptions, only event descriptions
-# I still don't regret stealing the code for Help.py though, I really don't
-
 # Class initialisation, if you're here to edit the bot and add new bits,
 # just make sure this bit is here, and the bit at the very bottom
 class Skribbl(commands.Cog):

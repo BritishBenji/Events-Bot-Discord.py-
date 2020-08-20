@@ -1,11 +1,12 @@
 import discord
 from discord.ext import commands
 from run import get_prefix
-import asyncio
 
 requested_games = {}
 
 
+# TODO: Make this into a proper database to allow for rebooting,
+#  and to allow the bot to be used in multiple servers without them clashing
 
 class Request(commands.Cog):
     """
@@ -46,7 +47,10 @@ class Request(commands.Cog):
     # Surprisingly, this command actually kinda works well. Like, I didn't think it would, but someone,
     # somewhere will find a way to break it
 
-    # I found the break, it was in DM's, I'll ignore it for now cause it's an easy fix ig
+    # I found the break, it was in DMs,
+    # I'll ignore it for now cause it's an easy fix that doesn't matter all that much
+
+    # TODO: Block this command from being used in DMs
 
     @bot.command(name="Requested", description="Command to see requests", aliases=["Reqd"])
     @commands.has_any_role("Owner", "Co-Owner", "Admin", "Moderator")
@@ -60,7 +64,7 @@ class Request(commands.Cog):
             embed.add_field(name=f'{y}', value=f'<@{game}>')
         await ctx.send(embed=embed)
 
-    # TODO: Tidy it up, just tidy it all up
+    # TODO: Fix an error that prevents you from removing entries that have more than one word in it
 
     @bot.command(name="Remove", description="Command to remove requests", aliases=["Rmv"])
     @commands.has_any_role("Owner", "Co-Owner", "Admin", "Moderator")
@@ -75,9 +79,9 @@ class Request(commands.Cog):
             msg = msg.content
             if msg.lower() == "yes":
                 del requested_games[x]
-                await ctx.send("Request has been deleted!")
+                await ctx.send(f"Requested game {x} has been deleted!")
             if msg.lower() == "no":
-                await ctx.send("Request has **not** been deleted!")
+                await ctx.send(f"Requested game {x} has **not** been deleted!")
         else:
             pass
 

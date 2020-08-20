@@ -3,7 +3,8 @@ from discord.ext import commands
 from run import get_prefix
 
 
-# I literally stole 50 lines of code for this cog. I'll personalise it eventually, the whole:
+# I literally stole 50 lines of code from StackOverflow (no copyright issues) for this cog.
+# I'll personalise it eventually, the whole:
 # "Sure you can copy my homework, just change it up a little"
 
 
@@ -25,25 +26,21 @@ class Help(commands.Cog):
                     )
     async def Help(self, ctx, *cog):
         """
-        helptext = "```"
-        for command in self.bot.commands:
-            helptext += f"{command}\n"
-        helptext += "```"
-        await ctx.send(helptext)
+        This Command!
         """
         if not cog:
-            halp = discord.Embed(title='Cog Listing and Uncategorized Commands',
-                                 description='Use `::help *command*` to find out more about them!')
+            halp = discord.Embed(title='Command list!',
+                                 description='Use `::help <command>` to find out more about them!')
             cogs_desc = ''
             for x in self.bot.cogs:
                 cogs_desc += ('{} - {}'.format(x, self.bot.cogs[x].__doc__) + '\n')
-            halp.add_field(name='Cogs', value=cogs_desc[0:len(cogs_desc) - 1], inline=False)
+            halp.add_field(name='Commands', value=cogs_desc[0:len(cogs_desc) - 1], inline=False)
             cmds_desc = ''
             for y in self.bot.walk_commands():
                 if not y.cog_name and not y.hidden:
                     cmds_desc += ('{} - {}'.format(y.name, y.help) + '\n')
             if cmds_desc != '':
-                halp.add_field(name='Uncatergorized Commands', value=cmds_desc[0:len(cmds_desc) - 1], inline=False)
+                halp.add_field(name='Uncategorized Commands', value=cmds_desc[0:len(cmds_desc) - 1], inline=False)
             await ctx.message.add_reaction(emoji='✉')
             await ctx.author.send('', embed=halp)
         else:

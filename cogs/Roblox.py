@@ -10,8 +10,8 @@ roblox_users = {
 
 
 # TODO: Replace the dictionary with a CSV file or a database
-# TODO: Add a command to allow users to add their roblox profile
-# I literally don't care if it verifies it, I'm not making a way to do that, no HTML compatibility here pleaasssseeeee
+# TODO: Add a command to allow users to add their roblox profile (After a Database has been made)
+# I literally don't care if it verifies it, I'm not making a way to do that
 
 class Roblox(commands.Cog):
     """
