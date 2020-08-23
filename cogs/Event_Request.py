@@ -35,6 +35,8 @@ class Request(commands.Cog):
         msg = msg.content
         embed = discord.Embed(title=f"You have requested to play {msg}",
                               description="Are you sure of your decision?\nYes? Or No?")
+        embed.set_footer(text=ctx.guild,
+                         icon_url=ctx.guild.icon_url)
         await ctx.send(embed=embed)
         msg2 = await self.bot.wait_for('message', check=lambda message: message.author == ctx.author)
         msg1 = msg2.content
@@ -62,6 +64,8 @@ class Request(commands.Cog):
         for y, x in requested_games.items():
             game = str.join("", x)
             embed.add_field(name=f'{y}', value=f'<@{game}>')
+        embed.set_footer(text=ctx.guild,
+                         icon_url=ctx.guild.icon_url)
         await ctx.send(embed=embed)
 
     # TODO: Fix an error that prevents you from removing entries that have more than one word in it

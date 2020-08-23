@@ -33,6 +33,8 @@ class CAH(commands.Cog):
                                   description="Join VC to join our game of Cards Against Humanity!")
             embed.set_thumbnail(
                 url="https://digital.hbs.edu/platform-rctom/wp-content/uploads/sites/4/2015/12/prt_280x188_1370231957.png")
+        embed.set_footer(text=ctx.guild,
+                         icon_url=ctx.guild.icon_url)
         await ctx.send(embed=embed)
 
 
